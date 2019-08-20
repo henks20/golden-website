@@ -1,0 +1,182 @@
+// Reset styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  color: #050505;
+  font-size: 16px;
+}
+
+.sectionContainer {
+  margin: 5vh 0;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  .sectionTitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    flex-direction: column;
+
+    h2 {
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-style: italic;
+      font-weight: 400;
+      color: gray;
+    }
+  }
+
+  .sectionContentContainer {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+}
+
+// Header
+
+.headerContainer {
+  height: 100vh;
+  position: relative;
+  background-image: url("../images/adventure-camp-camper-2398220.jpg");
+  background-position: center center;
+  background-size: cover;
+
+  .navbarContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline;
+      }
+    }
+  }
+  .headerContent {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Service Section
+
+.serviceItemContainer {
+  padding: 0 30px;
+
+  h3 {
+    font-weight: 700;
+  }
+
+  p {
+    font-weight: 400;
+    color: gray;
+  }
+
+  i {
+    font-size: 60px;
+    border: 3px solid yellow;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    color: yellow;
+    border-radius: 50%;
+  }
+}
+
+// Portfolio Section
+
+.imagesContainer {
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .portfolioItemContainer {
+    padding: 20px 40px;
+
+    .imageItemContainer {
+      width: 200px;
+      height: 300px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .contentItemContainer {
+      padding: 10px;
+      border: 1px solid gray;
+
+      h3 {
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 10px;
+        color: gray;
+      }
+    }
+  }
+}
+
+// Footer
+
+.footerContainer {
+  height: 10vh;
+  position: relative;
+
+  p {
+    position: absolute;
+    bottom: 40%;
+    left: 25%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .iconsContainer {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  i {
+    font-size: 15px;
+    background: black;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+}
