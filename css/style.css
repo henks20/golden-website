@@ -37,7 +37,7 @@ body {
   text-transform: uppercase;
   font-weight: 800;
   margin-bottom: 10px;
-  font-size: 1.3rem;
+  font-size: 2rem;
 }
 
 .container .sectionTitleContainer p {
@@ -67,16 +67,62 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 7vh;
 }
 
-.headerContainer .navbarContent ul {
+.headerContainer .navbarContent .goldenContainer {
+  height: 100%;
+  color: yellow;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  font-size: 1.3rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.headerContainer .navbarContent .extraClassContainer {
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.headerContainer .navbarContent nav {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  padding-left: 50%;
+}
+
+.headerContainer .navbarContent nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -ms-flex-align: center;
+      align-items: center;
 }
 
-.headerContainer .navbarContent ul li {
-  display: inline;
+.headerContainer .navbarContent nav ul li {
+  display: inline-block;
+  margin: 0 36px 0 0;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.headerContainer .navbarContent nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.headerContainer .navbarContent nav ul li a:hover {
+  color: yellow;
 }
 
 .headerContainer .headerContent {
@@ -85,6 +131,28 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.headerContainer .headerContent .headerWelcome {
+  font-size: 3rem;
+}
+
+.headerContainer .headerContent .headerText {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.headerContainer .headerContent .headerButton {
+  background-color: #b3b323;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .serviceItemContainer {
@@ -108,6 +176,10 @@ body {
   line-height: 120px;
   color: yellow;
   border-radius: 50%;
+}
+
+.backgroundGray {
+  background-color: #e6e4e4;
 }
 
 .imagesContainer {
@@ -135,7 +207,7 @@ body {
 
 .imagesContainer .portfolioItemContainer .contentItemContainer {
   padding: 10px;
-  border: 1px solid gray;
+  background-color: #fff;
 }
 
 .imagesContainer .portfolioItemContainer .contentItemContainer h3 {
