@@ -1,6 +1,6 @@
 # Golden website
 
-Simple webiste using: 
+Simple website using: 
 * HTML
 * Sass
 * RWD.
