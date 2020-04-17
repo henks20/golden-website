@@ -1,4 +1,4 @@
-// Reset styles
+// Global styles
 *,
 *::before,
 *::after {
@@ -10,10 +10,11 @@ body {
   text-align: center;
   color: #050505;
   font-size: 16px;
+  line-height: 1.5;
 }
 
-.sectionContainer {
-  margin: 5vh 0;
+section {
+  padding: 100px 0;
 }
 
 .container {
@@ -22,24 +23,18 @@ body {
   padding: 0 20px;
 
   .sectionTitleContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 15vh;
-    flex-direction: column;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 0;
+    font-size: 36px;
+  }
 
-    h2 {
-      text-transform: uppercase;
-      font-weight: 800;
-      margin-bottom: 10px;
-      font-size: 2rem;
-    }
-
-    p {
-      font-style: italic;
-      font-weight: 400;
-      color: gray;
-    }
+  .sectionSubtitleContainer {
+    margin: 0 0 40px 0;
+    font-style: italic;
+    font-weight: 400;
+    color: gray;
   }
 
   .sectionContentContainer {
@@ -49,90 +44,171 @@ body {
   }
 }
 
-// Header
+@media (max-width: 800px) {
+  .sectionContentContainer {
+    flex-direction: column;
+  }
+}
 
-.headerContainer {
+/* Header */
+
+.header {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  height: 7vh;
+
+  .golden {
+    color: yellow;
+    font-family: "Gill Sans", sans-serif;
+    display: inline;
+    font-size: 2rem;
+    line-height: 2;
+    left: 40vw;
+  }
+
+  .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    color: #fff;
+  }
+
+  li {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+
+    .navicon {
+      background: #333;
+      display: block;
+      height: 2px;
+      position: relative;
+      transition: background 0.2s ease-out;
+      width: 18px;
+    }
+
+    .navicon:before,
+    .navicon:after {
+      background: #333;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all 0.2s ease-out;
+      width: 100%;
+    }
+
+    .navicon:before {
+      top: 5px;
+    }
+
+    .navicon:after {
+      top: -5px;
+    }
+  }
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn:checked ~ .menu {
+    max-height: 400px;
+    background-color: #858c8f;
+  }
+
+  .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+
+  .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+
+  .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+
+  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .header {
+    .golden {
+      position: relative;
+      right: 10vw;
+      left: -10vw;
+    }
+    .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+      background-color: transparent;
+      position: relative;
+      right: 10vw;
+      li {
+        float: left;
+        padding: 20px 30px;
+      }
+    }
+    .menu-icon {
+      display: none;
+    }
+  }
+}
+
+//Main image
+
+.imageContainer {
   height: 100vh;
   position: relative;
   background-image: url("../images/adventure-camp-camper-2398220.jpg");
   background-position: center center;
   background-size: cover;
 
-  .navbarContent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 7vh;
-
-    .goldenContainer {
-      height: 100%;
-      color: yellow;
-      display: flex;
-      align-items: center;
-      font-size: 1.3rem;
-      font-family: "Courier New", Courier, monospace;
-    }
-
-    .extraClassContainer {
-      display: flex;
-      width: 100%;
-      height: 100%;
-    }
-
-    nav {
-      flex-basis: 100%;
-      padding-left: 50%;
-
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        height: 100%;
-        align-items: center;
-
-        li {
-          display: inline-block;
-          margin: 0 36px 0 0;
-          position: relative;
-          width: 100%;
-          text-align: center;
-          text-transform: uppercase;
-
-          a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.1rem;
-          }
-
-          a:hover {
-            color: yellow;
-          }
-        }
-      }
-    }
-  }
-  .headerContent {
+  .textContainer {
     position: absolute;
     width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
 
     .headerWelcome {
-      font-size: 3rem;
+      color: #fff;
+      font-size: 60px;
+      margin: 0;
+      position: relative;
+      font-style: italic;
+      font-weight: 300;
     }
-
     .headerText {
-      font-size: 5rem;
+      margin: 15px 0;
+      font-size: 90px;
+      color: #fff;
       text-transform: uppercase;
       font-weight: 800;
     }
-
     .headerButton {
-      background-color: #b3b323;
+      background-color: #abab1b;
       border: none;
       border-radius: 2px;
       font-size: 1.5rem;
@@ -144,10 +220,29 @@ body {
   }
 }
 
+@media (max-width: 800px) {
+  .imageContainer {
+    .textContainer {
+      .headerWelcome {
+        font-size: 2rem;
+      }
+      .headerText {
+        margin: 5px 0;
+        font-size: 3rem;
+      }
+      .headerButton {
+        font-size: 1rem;
+        color: #fff;
+        padding: 5px 8px;
+      }
+    }
+  }
+}
+
 // Service Section
 
 .serviceItemContainer {
-  padding: 0 30px;
+  padding: 0 30px 10px 30px;
 
   h3 {
     font-weight: 700;
@@ -219,12 +314,12 @@ body {
   height: 10vh;
   position: relative;
 
-  p {
+  .textContainer {
     position: absolute;
-    bottom: 40%;
+    width: 100%;
+    top: 50%;
     left: 25%;
-    margin: 0;
-    padding: 0;
+    transform: translate(-50%, -50%);
   }
 
   .iconsContainer {
@@ -244,5 +339,14 @@ body {
     color: #fff;
     border-radius: 50%;
     margin-right: 5px;
+  }
+}
+
+@media (max-width: 900px) {
+  .footerContainer {
+    .textContainer {
+      top: 100%;
+      left: 50%;
+    }
   }
 }

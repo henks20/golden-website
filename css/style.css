@@ -9,10 +9,11 @@ body {
   text-align: center;
   color: #050505;
   font-size: 16px;
+  line-height: 1.5;
 }
 
-.sectionContainer {
-  margin: 5vh 0;
+section {
+  padding: 100px 0;
 }
 
 .container {
@@ -22,25 +23,15 @@ body {
 }
 
 .container .sectionTitleContainer {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  height: 15vh;
-  -ms-flex-direction: column;
-      flex-direction: column;
-}
-
-.container .sectionTitleContainer h2 {
+  position: relative;
   text-transform: uppercase;
   font-weight: 800;
-  margin-bottom: 10px;
-  font-size: 2rem;
+  margin: 0;
+  font-size: 36px;
 }
 
-.container .sectionTitleContainer p {
+.container .sectionSubtitleContainer {
+  margin: 0 0 40px 0;
   font-style: italic;
   font-weight: 400;
   color: gray;
@@ -55,7 +46,141 @@ body {
       align-items: center;
 }
 
-.headerContainer {
+@media (max-width: 800px) {
+  .sectionContentContainer {
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+}
+
+/* Header */
+.header {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  height: 7vh;
+}
+
+.header .golden {
+  color: yellow;
+  font-family: "Gill Sans", sans-serif;
+  display: inline;
+  font-size: 2rem;
+  line-height: 2;
+  left: 40vw;
+}
+
+.header .menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: #fff;
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  color: #fff;
+}
+
+.header li {
+  display: block;
+  padding: 20px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.header .menu-icon {
+  cursor: pointer;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 400px;
+  background-color: #858c8f;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+@media (min-width: 1000px) {
+  .header .golden {
+    position: relative;
+    right: 10vw;
+    left: -10vw;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+    background-color: transparent;
+    position: relative;
+    right: 10vw;
+  }
+  .header .menu li {
+    float: left;
+    padding: 20px 30px;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
+.imageContainer {
   height: 100vh;
   position: relative;
   background-image: url("../images/adventure-camp-camper-2398220.jpg");
@@ -63,89 +188,33 @@ body {
   background-size: cover;
 }
 
-.headerContainer .navbarContent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 7vh;
-}
-
-.headerContainer .navbarContent .goldenContainer {
-  height: 100%;
-  color: yellow;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  font-size: 1.3rem;
-  font-family: "Courier New", Courier, monospace;
-}
-
-.headerContainer .navbarContent .extraClassContainer {
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.headerContainer .navbarContent nav {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  padding-left: 50%;
-}
-
-.headerContainer .navbarContent nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  -ms-flex-align: center;
-      align-items: center;
-}
-
-.headerContainer .navbarContent nav ul li {
-  display: inline-block;
-  margin: 0 36px 0 0;
-  position: relative;
-  width: 100%;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.headerContainer .navbarContent nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.1rem;
-}
-
-.headerContainer .navbarContent nav ul li a:hover {
-  color: yellow;
-}
-
-.headerContainer .headerContent {
+.imageContainer .textContainer {
   position: absolute;
   width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.imageContainer .textContainer .headerWelcome {
   color: #fff;
+  font-size: 60px;
+  margin: 0;
+  position: relative;
+  font-style: italic;
+  font-weight: 300;
 }
 
-.headerContainer .headerContent .headerWelcome {
-  font-size: 3rem;
-}
-
-.headerContainer .headerContent .headerText {
-  font-size: 5rem;
+.imageContainer .textContainer .headerText {
+  margin: 15px 0;
+  font-size: 90px;
+  color: #fff;
   text-transform: uppercase;
   font-weight: 800;
 }
 
-.headerContainer .headerContent .headerButton {
-  background-color: #b3b323;
+.imageContainer .textContainer .headerButton {
+  background-color: #abab1b;
   border: none;
   border-radius: 2px;
   font-size: 1.5rem;
@@ -155,8 +224,23 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 800px) {
+  .imageContainer .textContainer .headerWelcome {
+    font-size: 2rem;
+  }
+  .imageContainer .textContainer .headerText {
+    margin: 5px 0;
+    font-size: 3rem;
+  }
+  .imageContainer .textContainer .headerButton {
+    font-size: 1rem;
+    color: #fff;
+    padding: 5px 8px;
+  }
+}
+
 .serviceItemContainer {
-  padding: 0 30px;
+  padding: 0 30px 10px 30px;
 }
 
 .serviceItemContainer h3 {
@@ -228,12 +312,12 @@ body {
   position: relative;
 }
 
-.footerContainer p {
+.footerContainer .textContainer {
   position: absolute;
-  bottom: 40%;
+  width: 100%;
+  top: 50%;
   left: 25%;
-  margin: 0;
-  padding: 0;
+  transform: translate(-50%, -50%);
 }
 
 .footerContainer .iconsContainer {
@@ -253,5 +337,12 @@ body {
   color: #fff;
   border-radius: 50%;
   margin-right: 5px;
+}
+
+@media (max-width: 900px) {
+  .footerContainer .textContainer {
+    top: 100%;
+    left: 50%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
